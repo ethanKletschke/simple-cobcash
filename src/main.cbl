@@ -20,11 +20,11 @@
       *Edited numeric fields for displaying financial data.
        01  WS-Disp-Finances.
       *    Amount Paid (for display)
-           05 WS-Disp-Paid PIC $$$,$$$.99.
+           05 WS-Disp-Paid PIC $$$,$$9.99.
       *    Amount Owed (for display)
-           05 WS-Disp-Owed PIC $$$,$$$.99.
+           05 WS-Disp-Owed PIC $$$,$$9.99.
       *    Change left over (for display)
-           05 WS-Disp-Change PIC $$$,$$$.99.
+           05 WS-Disp-Change PIC $$$,$$9.99.
 
        PROCEDURE DIVISION.
       *    Placeholder logic

@@ -27,7 +27,22 @@
            05 WS-Disp-Change PIC $$$,$$$.99.
 
        PROCEDURE DIVISION.
-           DISPLAY "This is a WIP program.".
-           STOP RUN.
+      *    Placeholder logic
+           MOVE 'Ethan K.' TO WS-Holder-Name.
+           MOVE 1234 TO WS-PIN.
 
+           MOVE 12345.67 TO WS-Owed.
+           MOVE 12346.00 TO WS-Paid.
+
+           COMPUTE WS-Change = WS-Owed - WS-Paid.
+
+           MOVE WS-Owed TO WS-Disp-Owed.
+           MOVE WS-Paid TO WS-Disp-Paid.
+           MOVE WS-Change TO WS-Disp-Change.
+
+           DISPLAY WS-Disp-Owed.
+           DISPLAY WS-Disp-Paid.
+           DISPLAY WS-Disp-Change.
+
+           STOP RUN.
        END PROGRAM CobCash.

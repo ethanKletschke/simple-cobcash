@@ -1,0 +1,15 @@
+# Project metadata for humans to read
+# Not used by the application at runtime
+
+project-meta:
+  project-name: CobCash
+  languages: 
+    - GnuCOBOL
+  status: Experimental
+  license: MIT
+  version: 0.0.3
+
+build:
+  developed-on: Windows 11
+  tested-on: Windows 11
+  target-platform: Windows

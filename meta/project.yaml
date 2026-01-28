@@ -3,8 +3,7 @@
 
 project-meta:
   project-name: CobCash
-  languages: 
-    - GnuCOBOL
+  language: GnuCOBOL
   status: Experimental
   license: MIT
   version: 0.0.3

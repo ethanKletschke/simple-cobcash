@@ -3,7 +3,7 @@
 A simple COBOL program imitating an EFT transaction.
 
 - Author: Ethan Kletschke
-- Version: `0.0.3`
+- Version: `0.0.4`
 - Developed and Tested On: Windows 11
 - Targeted Platform: Windows
 - License: MIT

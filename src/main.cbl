@@ -28,14 +28,17 @@
 
        SCREEN SECTION.
        COPY "InputScreen.cpy".
-      *> TODO -> finish processing and output screens
-      *COPY "ProcessingScreen.cpy".
+      *> TODO -> Finish output screen
+       COPY "ProcessingScreen.cpy".
       *COPY "OutputScreen.cpy".
        COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.
            DISPLAY SC-Input-Screen.
            ACCEPT SC-Input-Screen.
+
+           DISPLAY SC-Processing-Screen.
+           CONTINUE AFTER 2 SECONDS.
 
            DISPLAY SC-Debug-Screen.
            ACCEPT OMITTED.

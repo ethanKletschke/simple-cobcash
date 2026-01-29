@@ -15,4 +15,4 @@ jobs:
       - name: Build the app
         run: cobc -Wall -Wextra -I src -c src/*.cbl
       - name: Link executable  
-        run: cobc -x -I src src/*.cbl -o bin/CobCash
+        run: cobc -x -I src src/*.cbl

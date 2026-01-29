@@ -28,8 +28,8 @@
 
        SCREEN SECTION.
        COPY "InputScreen.cpy".
-      *> TODO -> Finish output screen
        COPY "ProcessingScreen.cpy".
+      *> TODO -> Finish output screen
       *COPY "OutputScreen.cpy".
        COPY "DebugScreen.cpy".
 

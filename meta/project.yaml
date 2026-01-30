@@ -3,12 +3,15 @@
 
 project-meta:
   project-name: CobCash
-  language: GnuCOBOL
+  language: COBOL (GnuCOBOL)
   status: Experimental
   license: MIT
-  version: 0.0.3
+  version: 0.0.4
 
 build:
   developed-on: Windows 11
   tested-on: Windows 11
   target-platform: Windows
+  compiler:
+    compiler-name: cobc (GnuCOBOL)
+    compiler-version: 3.2

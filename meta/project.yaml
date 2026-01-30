@@ -3,6 +3,8 @@
 
 project-meta:
   project-name: CobCash
+  author: Ethan Kletschke
+  date-started: 2026-01-25
   language: COBOL (GnuCOBOL)
   status: Experimental
   license: MIT

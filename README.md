@@ -1,4 +1,4 @@
-# SimpleCobCash
+# CobCash
 
 A simple COBOL program imitating an EFT transaction.
 
@@ -10,7 +10,7 @@ A simple COBOL program imitating an EFT transaction.
 
 ---
 
-- [SimpleCobCash](#simplecobcash)
+- [CobCash](#cobcash)
   - [Disclaimer](#disclaimer)
   - [Planned Features](#planned-features)
 

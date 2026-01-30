@@ -1,3 +1,4 @@
+@REM Command Prompt linting script
 @REM First run "set_env.cmd" from GnuCOBOL's root folder
 
 @REM Compile source code into object files

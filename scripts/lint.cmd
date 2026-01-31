@@ -1,10 +1,7 @@
 @REM Command Prompt linting script
 @REM First run "set_env.cmd" from GnuCOBOL's root folder
 
-@REM Compile source code into object files
-cobc -I ../src -Wall -Wextra -c ../src/*.cbl
-
-@REM Delete object files
-del /Q *.o
+@REM Check the syntax of the source code files
+cobc -I ../src -fsyntax-only -Wall -Wextra ../src/*.cbl
 
 @REM Note: Run from the same folder as the script.

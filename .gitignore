@@ -1,2 +1,8 @@
 # Binaries folder
 bin/
+
+# Build artifacts
+*.zip
+*.exe
+*.o\
+*.dll

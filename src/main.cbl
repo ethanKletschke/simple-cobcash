@@ -20,11 +20,11 @@
       *Edited numeric fields for displaying financial data.
        01  WS-Disp-Finances.
       *    Amount Paid (for display)
-           05 WS-Disp-Paid PIC $$$,$$9.99 VALUE 0.
+           05 WS-Disp-Paid PIC $$$$,$$9.99 VALUE 0.
       *    Amount Owed (for display)
-           05 WS-Disp-Owed PIC $$$,$$9.99 VALUE 0.
+           05 WS-Disp-Owed PIC $$$$,$$9.99 VALUE 0.
       *    Change left over (for display)
-           05 WS-Disp-Change PIC $$$,$$9.99 VALUE 0.
+           05 WS-Disp-Change PIC $$$$,$$9.99 VALUE 0.
 
        SCREEN SECTION.
        COPY "InputScreen.cpy".
@@ -34,13 +34,24 @@
        COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.
+      *    Input
            DISPLAY SC-Input-Screen.
            ACCEPT SC-Input-Screen.
 
+      *    Processing
            DISPLAY SC-Processing-Screen.
-           CONTINUE AFTER 2 SECONDS.
 
+           COMPUTE WS-Change = WS-Owed - WS-Paid.
+
+           MOVE WS-Change TO WS-Disp-Change.
+           MOVE WS-Owed TO WS-Disp-Owed.
+           MOVE WS-Paid TO WS-Disp-Paid.
+
+           CONTINUE AFTER 2 SECONDS. *> Allows user to see processing screen
+
+      *    Output
            DISPLAY SC-Debug-Screen.
            ACCEPT OMITTED.
+      *    Stop program
            STOP RUN.
        END PROGRAM CobCash.

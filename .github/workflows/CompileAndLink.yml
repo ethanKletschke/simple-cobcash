@@ -9,13 +9,17 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
       - name: Set up GnuCOBOL
         uses: fabasoad/setup-cobol-action@v1.6.1
         with:
           version: 3.2
+
       - name: Syntax check
         run: cobc -fsyntax-only -Wfatal-errors -I src src/*.cbl
+
       - name: Compile (warnings)
         run: cobc -Wall -Wextra -I src -c src/*.cbl
+
       - name: Link executable  
         run: cobc -x -I src src/*.cbl

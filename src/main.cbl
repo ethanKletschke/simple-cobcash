@@ -35,13 +35,22 @@
 
        PROCEDURE DIVISION.
       *    Input
-           DISPLAY SC-Input-Screen.
-           ACCEPT SC-Input-Screen.
+           DISPLAY 
+               SC-Input-Screen 
+           END-DISPLAY.
+           
+           ACCEPT 
+               SC-Input-Screen 
+           END-ACCEPT.
 
       *    Processing
-           DISPLAY SC-Processing-Screen.
+           DISPLAY 
+               SC-Processing-Screen 
+           END-DISPLAY.
 
-           COMPUTE WS-Change = WS-Owed - WS-Paid.
+           COMPUTE
+               WS-Change = WS-Owed - WS-Paid 
+           END-COMPUTE.
 
            MOVE WS-Change TO WS-Disp-Change.
            MOVE WS-Owed TO WS-Disp-Owed.
@@ -50,8 +59,13 @@
            CONTINUE AFTER 2 SECONDS. *> Allows user to see processing screen
 
       *    Output
-           DISPLAY SC-Debug-Screen.
-           ACCEPT OMITTED.
+           DISPLAY
+               SC-Debug-Screen
+           END-DISPLAY.
+
+           ACCEPT
+               OMITTED
+           END-ACCEPT.
       *    Stop program
            STOP RUN.
        END PROGRAM CobCash.

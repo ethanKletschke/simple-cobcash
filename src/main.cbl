@@ -29,28 +29,18 @@
        SCREEN SECTION.
        COPY "InputScreen.cpy".
        COPY "ProcessingScreen.cpy".
-      *> TODO -> Finish output screen
-      * COPY "OutputScreen.cpy".
+       COPY "OutputScreen.cpy".
       D COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.
       *    Input
-           DISPLAY 
-               SC-Input-Screen 
-           END-DISPLAY.
-
-           ACCEPT 
-               SC-Input-Screen 
-           END-ACCEPT.
+           DISPLAY SC-Input-Screen.
+           ACCEPT SC-Input-Screen.
 
       *    Processing
-           DISPLAY 
-               SC-Processing-Screen 
-           END-DISPLAY.
+           DISPLAY SC-Processing-Screen.
 
-           COMPUTE
-               WS-Change = WS-Owed - WS-Paid 
-           END-COMPUTE.
+           COMPUTE WS-Change = WS-Owed - WS-Paid.
 
            MOVE WS-Change TO WS-Disp-Change.
            MOVE WS-Owed TO WS-Disp-Owed.
@@ -59,13 +49,9 @@
            CONTINUE AFTER 2 SECONDS. *> Allows user to see processing screen
 
       *    Output
-      D    DISPLAY
-      D        SC-Debug-Screen
-      D    END-DISPLAY.
+      D    DISPLAY SC-Debug-Screen.
 
-           ACCEPT
-               OMITTED
-           END-ACCEPT.
+           ACCEPT OMITTED.
       *    Stop program
            STOP RUN.
        END PROGRAM CobCash.

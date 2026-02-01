@@ -1,4 +1,4 @@
-      *Displays variable values for debug purposes
+      *Screen for debug output
        01  SC-Debug-Screen.
            05 BLANK SCREEN.
            05 LINE 2 COL 3 VALUE 'Debug Screen. Press Enter to Exit.'.

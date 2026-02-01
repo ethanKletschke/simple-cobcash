@@ -50,8 +50,8 @@
 
       *    Output
       D    DISPLAY SC-Debug-Screen.
-
            ACCEPT OMITTED.
+
       *    Stop program
            STOP RUN.
        END PROGRAM CobCash.

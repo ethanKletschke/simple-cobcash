@@ -1,9 +1,9 @@
 # CobCash
 
-A simple COBOL program imitating an EFT transaction.
+A fixed-format COBOL app that imitates a transaction at a cashier till.
 
 - Author: Ethan Kletschke
-- Version: `0.0.4`
+- Version: `0.0.5`
 - Developed and Tested On: Windows 11
 - Targeted Platform: Windows
 - License: MIT
@@ -35,12 +35,12 @@ A simple COBOL program imitating an EFT transaction.
 
 ### Known Limitations and Bugs
 
-- COBOL's `SCREEN` section, which is heavily utilised in this app, is a bit
-  finicky with user input.
+- GnuCOBOL’s implementation of the COBOL `SCREEN` section is somewhat finicky
+  with user input.
   - The decimal points (`.`) in the numeric inputs are "glued" in place, and
     cannot be overwritten.
-  - There is a chance that user input can overflow into different fields. For 
-    example
+  - There is a chance that user input can overflow into different fields if the
+    entered number is longer than the target field.
   - It is recommended to use the arrow keys to navigate to different fields.
   - Furthermore, if you press backspace in the numeric inputs, it'll remove 
     the placeholder characters (i.e. `0` and `.`) and make input even more 
@@ -54,23 +54,26 @@ A simple COBOL program imitating an EFT transaction.
 
 ## Running the App
 
-To run the app, unzip the `.zip` that is provided in the latest release of this
-repository, and run the `.exe`. 
+To run the app, unzip the `.zip` that will be provided in the latest 
+release of this repository, and run the `.exe`. 
 
-To build from source (not recommended),
-download [GnuCOBOL](https://gnucobol.sourceforge.io/) 
-or one of its [pre-built binaries](https://www.arnoldtrembley.com/GnuCOBOL.htm),
-then follow the steps below:
+GnuCOBOL is not a fully static compiler like GCC. It generates native executables,
+but they depend on the GnuCOBOL runtime libraries (DLLs) to run — similar to how
+Python or .NET applications require their runtime to be present.  
+Because of this, GnuCOBOL DLLs are required when running the application on
+Windows. The provided `.zip` should include all necessary DLLs. However, if the
+program starts and reports missing DLLs, **please** open a GitHub issue and
+include screenshots of the error messages — especially the names of any missing
+DLLs — so they can be added.
 
-1. Go to the root folder of GnuCOBOL (say, `C:\GnuCOBOL`)
-2. Open a terminal in that folder
-3. Run the `set_env.cmd` batch file via the terminal
-4. Go to the cloned repo's root folder
-5. Compile with the following commands:
+You can build the application from source, but on Windows this is not recommended
+unless you already have a working GnuCOBOL + MinGW setup. Configuring the toolchain
+and collecting all required runtime DLLs can be difficult and error-prone.
 
-```cmd
-mkdir ./bin
-cobc -x -I ./src ./src/main.cbl -o ./bin/CobCash
-```
+For this reason, a pre-built GnuCOBOL distribution (such as
+[Arnold Trembley's amazing binaries](https://www.arnoldtrembley.com/GnuCOBOL.htm)) 
+was used to build the provided binaries,
+and the release ZIP includes the DLLs needed to run the program on Windows.
 
-6. Run the `.exe` generated in the `bin` folder.
+If you do build from source and encounter missing DLL errors, please report them
+via a GitHub issue so they can be documented or included in future releases.

@@ -48,8 +48,13 @@
 
            CONTINUE AFTER 2 SECONDS. *> Allows user to see processing screen
 
-      *    Output
-      D    DISPLAY SC-Debug-Screen.
+           DISPLAY
+      *    Display the normal output screen
+              SC-Output-Screen 
+      *    Overwrite it with the debug screen if compiled with "build-debug.cmd"
+      D       SC-Debug-Screen 
+           END-DISPLAY.
+
            ACCEPT OMITTED.
 
       *    Stop program

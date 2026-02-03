@@ -16,7 +16,7 @@ jobs:
           version: 3.2
 
       - name: Syntax check
-        run: cobc -I ../src -fsyntax-only -Wfatal-errors -Wall -Wextra -Wno-terminator src/*.cbl
+        run: cobc -I src -fsyntax-only -Wfatal-errors -Wall -Wextra -Wno-terminator src/*.cbl
 
       - name: Compile (warnings)
         run: cobc -Wall -Wextra -Wno-terminator -I src -c src/*.cbl

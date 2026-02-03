@@ -1,8 +1,11 @@
 # Binaries folder
 bin/
 
+# Distribution folder
+dist/
+
 # Build artifacts
 *.zip
 *.exe
-*.o\
+*.o
 *.dll

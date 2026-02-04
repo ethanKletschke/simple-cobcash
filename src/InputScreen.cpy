@@ -15,7 +15,7 @@
               REVERSE-VIDEO *> Reverses the colours of the input field
               REQUIRED. *> Can"t continue without filling this field in.
       *    Card PIN number label
-           05 LINE 7 COL 3 VALUE "PIN: ".
+           05 LINE 7 COL 3 VALUE "Card PIN: ".
       *    Card PIN number input
            05 LINE 7 COLUMN PLUS 1 PIC 9(5) USING WS-PIN
               REVERSE-VIDEO

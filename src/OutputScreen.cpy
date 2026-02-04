@@ -17,7 +17,8 @@
            05 LINE 5 COL PLUS 1 PIC X(45) FROM WS-Holder-Name. 
 
            05 LINE 6 COL 3 VALUE "Owed: ".
-           05 LINE 6 COL PLUS 3 PIC $$$$,$$9.99 FROM WS-Disp-Owed.
+           05 LINE 6 COL PLUS 3 *> Equalises spacing for all 3 labels
+              PIC $$$$,$$9.99 FROM WS-Disp-Owed.
 
            05 LINE 7 COL 3 VALUE "Paid: ".
            05 LINE 7 COL PLUS 3 PIC $$$$,$$9.99 FROM WS-Disp-Paid.

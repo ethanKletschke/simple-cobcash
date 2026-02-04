@@ -52,15 +52,17 @@
            DISPLAY SC-Processing-Screen.
 
            IF WS-Owed > WS-Paid THEN
-               MOVE "Insufficient Funds" TO WS-Error-Msg.
-               MOVE 101 TO WS-Error-Code.
+               MOVE "Insufficient Funds" TO WS-Error-Msg
+               MOVE 101 TO WS-Error-Code
 
-               CONTINUE AFTER 2 SECONDS.
+               CONTINUE AFTER 2 SECONDS
 
-               DISPLAY SC-Error-Screen.
-               ACCEPT OMITTED.
+               DISPLAY SC-Error-Screen
+               ACCEPT OMITTED
 
-               STOP RUN RETURNING 1.
+               STOP RUN RETURNING 1
+
+           END-IF.
 
            COMPUTE WS-Change = WS-Owed - WS-Paid.
 

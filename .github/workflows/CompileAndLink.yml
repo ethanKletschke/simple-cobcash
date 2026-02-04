@@ -19,7 +19,7 @@ jobs:
         run: cobc -I src -fsyntax-only -Wfatal-errors -Wall -Wextra -Wno-terminator src/*.cbl
 
       - name: Compile (warnings)
-        run: cobc -Wall -Wextra -Wno-terminator -I src -c src/*.cbl
+        run: cobc -Wfatal-errors -Wall -Wextra -Wno-terminator -I src -c src/*.cbl
 
       - name: Link executable  
         run: cobc -x -I src src/*.cbl

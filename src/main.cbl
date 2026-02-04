@@ -61,7 +61,6 @@
                ACCEPT OMITTED
 
                STOP RUN RETURNING 1
-
            END-IF.
 
            COMPUTE WS-Change = WS-Owed - WS-Paid.

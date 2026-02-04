@@ -26,19 +26,41 @@
       *    Change left over (for display)
            05 WS-Disp-Change PIC $$$$,$$9.99 VALUE 0.
 
+      *Error fields
+       01  WS-Error-Values.
+           05 WS-Error-Msg PIC X(25) VALUE 'Unspecified Error'.
+           05 WS-Error-Code PIC ZZ9 VALUE 0.
+
        SCREEN SECTION.
        COPY "InputScreen.cpy".
        COPY "ProcessingScreen.cpy".
        COPY "OutputScreen.cpy".
+       COPY "ErrorScreen.cpy".
       D COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.
+           INITIALISE WS-Card-Data.
+           INITIALISE WS-Calc-Finances WITH FILLER.
+           INITIALISE WS-Disp-Finances WITH FILLER.
+           INITIALISE WS-Error-Values WITH FILLER.
+
       *    Input
            DISPLAY SC-Input-Screen.
            ACCEPT SC-Input-Screen.
 
       *    Processing
            DISPLAY SC-Processing-Screen.
+
+           IF WS-Owed > WS-Paid THEN
+               MOVE "Insufficient Funds" TO WS-Error-Msg.
+               MOVE 101 TO WS-Error-Code.
+
+               CONTINUE AFTER 2 SECONDS.
+
+               DISPLAY SC-Error-Screen.
+               ACCEPT OMITTED.
+
+               STOP RUN RETURNING 1.
 
            COMPUTE WS-Change = WS-Owed - WS-Paid.
 

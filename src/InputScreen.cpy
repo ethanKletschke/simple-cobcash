@@ -22,7 +22,7 @@
               REQUIRED
               SECURE. *> Mask input with asterisks
 
-      *    Separator line
+      *    Divider line
            05 LINE 8 COL 3 VALUE "======================================
       -    "================================".
 

@@ -4,12 +4,15 @@
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
+      *    Declare the file to write the receipt report to
            SELECT Receipt-File ASSIGN TO "Receipt.txt"
            ORGANISATION SEQUENTIAL.
 
        DATA DIVISION.
        FILE SECTION.
+      * File description for the receipt file "Receipt.txt".
        FD  Receipt-File
+      *Link "Receipt.txt" to its corresponding report
            REPORT IS Receipt-Report.
 
        WORKING-STORAGE SECTION.
@@ -46,19 +49,23 @@
            05 WS-Error-Code PIC ZZ9 VALUE 0.
 
        REPORT SECTION.
+      *The receipt report description
        RD  Receipt-Report
-           CONTROLS ARE FINAL
-           PAGE LIMIT IS 11 LINES
-               HEADING 1
-               FIRST DETAIL 5
-               LAST DETAIL 10.
+           CONTROLS ARE FINAL *> Don't group fields
+           PAGE LIMIT IS 11 LINES *> File is 11 lines long
+               HEADING 1 *> heading at line 1
+               FIRST DETAIL 5 *> Start of body at line 5
+               LAST DETAIL 10. *> End of body at line 10
+      *The heading of the receipt
        01  TYPE IS PAGE HEADING.
-           05 LINE PLUS 1.
-               10 COL 1 VALUE "CobCash Receipt".
-               10 COL 25 PIC 9999/99/99 SOURCE WS-Date.
+           05 LINE PLUS 1. *> Line 1 of receipt
+               10 COL 1 VALUE "CobCash Receipt". *> Title
+               10 COL 25 PIC 9999/99/99 SOURCE WS-Date. *> Today's date
            05 LINE PLUS 2.
+      *        A divider made up of "=" signs
                10 COL 1 PIC X(45) SOURCE WS-Equals-Divider.
-
+      
+      *Receipt body
        01  TYPE CONTROL FOOTING FINAL.
            05 LINE PLUS 1.
               10 COL 1 VALUE "Cardholder Name:".
@@ -76,6 +83,7 @@
               10 COL 1 VALUE "Thank you for your patronage!".
 
        SCREEN SECTION.
+      *The screens are defined in separate copybooks for scalability
        COPY "InputScreen.cpy".
        COPY "ProcessingScreen.cpy".
        COPY "OutputScreen.cpy".
@@ -83,45 +91,63 @@
       D COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.
+       INITIALISATION SECTION. *> Data initialisation
+      *Initialise data items without a VALUE clause
            INITIALISE WS-Card-Data.
            INITIALISE WS-Date.
 
+      *    Store today's date for use in the report
            MOVE FUNCTION CURRENT-DATE(1:8)
                TO WS-Date.
 
+       USER-INPUT SECTION.
+      *    Open the Receipt.txt file and start recording values
+      *    for its report.
            OPEN OUTPUT Receipt-File.
            INITIATE Receipt-Report.
 
-      *    Input
+      *    Display the input screen
            DISPLAY SC-Input-Screen.
            ACCEPT SC-Input-Screen.
 
-      *    Processing
+       Processing-User-Input SECTION.
+      *    Display the processing screen
            DISPLAY SC-Processing-Screen.
 
            IF WS-Owed > WS-Paid THEN
+      *        Assign an appropriate error message
                MOVE "Insufficient Funds" TO WS-Error-Msg
+      *        Assign an appropriate error code
                MOVE 101 TO WS-Error-Code
 
+      *        Allow the user to see the processing screen
                CONTINUE AFTER 2 SECONDS
 
+      *        Display the error screen
                DISPLAY SC-Error-Screen
                ACCEPT OMITTED
 
+      *        Stop recording the report data and close its file
                TERMINATE Receipt-Report
                CLOSE Receipt-File
 
-               STOP RUN RETURNING 1
+      *        Close the app with the error code "1"
+               STOP RUN WITH ERROR 1
            END-IF.
 
+      *    Calculate the change from the transaction
            COMPUTE WS-Change = WS-Paid - WS-Owed.
 
+      *    Move the calculation values to their display variables
            MOVE WS-Change TO WS-Disp-Change.
            MOVE WS-Owed TO WS-Disp-Owed.
            MOVE WS-Paid TO WS-Disp-Paid.
 
-           CONTINUE AFTER 2 SECONDS. *> Allows user to see processing screen
+      *    Allows the user to actually see the processing screen
+           CONTINUE AFTER 2 SECONDS. 
 
+       END-OF-PROGRAM SECTION.
+      *    Generate the 
            GENERATE Receipt-Report.
            TERMINATE Receipt-Report.
 

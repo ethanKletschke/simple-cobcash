@@ -1,3 +1,4 @@
+      *Screen showed on program error.
        01 SC-Error-Screen.
            05 BLANK SCREEN.
 

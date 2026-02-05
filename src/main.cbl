@@ -1,7 +1,17 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. CobCash.
 
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT Receipt-File ASSIGN TO "Receipt.txt"
+           ORGANISATION SEQUENTIAL.
+
        DATA DIVISION.
+       FILE SECTION.
+       FD  Receipt-File
+           REPORT IS Receipt-Report.
+
        WORKING-STORAGE SECTION.
       *Data about the card.
        01  WS-Card-Data.
@@ -25,11 +35,45 @@
            05 WS-Disp-Owed PIC $$$$,$$9.99 VALUE 0.
       *    Change left over (for display)
            05 WS-Disp-Change PIC $$$$,$$9.99 VALUE 0.
-
+      *Today's date, for use in the REPORT section.
+       01  WS-Date PIC 9999/99/99.
+      *Miscellaneous data items for formatting
+       01  WS-Formatting.
+           05 WS-Equals-Divider PIC X(45) VALUE ALL "=".
       *Error fields
        01  WS-Error-Values.
-           05 WS-Error-Msg PIC X(25) VALUE 'Unspecified Error'.
+           05 WS-Error-Msg PIC X(25) VALUE "Unspecified Error".
            05 WS-Error-Code PIC ZZ9 VALUE 0.
+
+       REPORT SECTION.
+       RD  Receipt-Report
+           CONTROLS ARE FINAL
+           PAGE LIMIT IS 36 LINES
+               HEADING 1
+               FIRST DETAIL 5
+               LAST DETAIL 34.
+       01  TYPE IS PAGE HEADING.
+           05 LINE PLUS 1.
+               10 COL 1 VALUE "CobCash Receipt".
+               10 COL 25 PIC 9999/99/99 SOURCE WS-Date.
+           05 LINE PLUS 2.
+               10 COL 1 PIC X(45) SOURCE WS-Equals-Divider.
+
+       01  TYPE CONTROL FOOTING FINAL.
+           05 LINE PLUS 1.
+              10 COL 1 VALUE "Cardholder Name:".
+              10 COL 25 PIC X(45) SOURCE WS-Holder-Name.
+           05 LINE PLUS 1.
+              10 COL 1 VALUE "Amt. Owed:".
+              10 COL 25 PIC $$$$,$$9.99 SOURCE WS-Owed.
+           05 LINE PLUS 1.
+              10 COL 1 VALUE "Amt. Paid:".
+              10 COL 25 PIC $$$$,$$9.99 SOURCE WS-Paid.
+           05 LINE PLUS 1.
+              10 COL 1 VALUE "Change:".
+              10 COL 25 PIC $$$$,$$9.99 SOURCE WS-Change.
+           05 LINE PLUS 2.
+              10 COL 1 VALUE "Thank you for your patronage!".
 
        SCREEN SECTION.
        COPY "InputScreen.cpy".
@@ -39,10 +83,18 @@
       D COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.
-           INITIALISE WS-Card-Data.
-           INITIALISE WS-Calc-Finances WITH FILLER.
-           INITIALISE WS-Disp-Finances WITH FILLER.
-           INITIALISE WS-Error-Values WITH FILLER.
+           INITIALISE WS-Card-Data
+           INITIALISE WS-Date
+           INITIALISE WS-Calc-Finances WITH FILLER
+           INITIALISE WS-Disp-Finances WITH FILLER
+           INITIALISE WS-Formatting    WITH FILLER
+           INITIALISE WS-Error-Values  WITH FILLER.
+
+           MOVE FUNCTION CURRENT-DATE(1:8)
+               TO WS-Date.
+
+           OPEN OUTPUT Receipt-File.
+           INITIATE Receipt-Report.
 
       *    Input
            DISPLAY SC-Input-Screen.
@@ -60,16 +112,24 @@
                DISPLAY SC-Error-Screen
                ACCEPT OMITTED
 
+               TERMINATE Receipt-Report
+               CLOSE Receipt-File
+
                STOP RUN RETURNING 1
            END-IF.
 
-           COMPUTE WS-Change = WS-Owed - WS-Paid.
+           COMPUTE WS-Change = WS-Paid - WS-Owed.
 
            MOVE WS-Change TO WS-Disp-Change.
            MOVE WS-Owed TO WS-Disp-Owed.
            MOVE WS-Paid TO WS-Disp-Paid.
 
            CONTINUE AFTER 2 SECONDS. *> Allows user to see processing screen
+
+           GENERATE Receipt-Report.
+           TERMINATE Receipt-Report.
+
+           CLOSE Receipt-File.
 
            DISPLAY
       *    Display the normal output screen
@@ -78,6 +138,7 @@
       D       SC-Debug-Screen 
            END-DISPLAY.
 
+      *    Press enter to continue
            ACCEPT OMITTED.
 
       *    Stop program

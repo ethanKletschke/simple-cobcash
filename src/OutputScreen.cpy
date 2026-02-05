@@ -25,3 +25,6 @@
 
            05 LINE 8 COL 3 VALUE "Change: ".
            05 LINE 8 COL PLUS 1 PIC $$$$,$$9.99 FROM WS-Disp-Change.
+
+           05 LINE 10 COL 3 
+              VALUE "Please review your receipt (Receipt.txt)".

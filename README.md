@@ -48,9 +48,11 @@ A fixed-format COBOL app that imitates a transaction at a cashier till.
 
 ## Planned Features
 
-- Using the `SCREEN` section for different sections of the program, i.e., input, 
+- [x] Using the `SCREEN` section for different sections of the program, i.e., input, 
   processing, and output.
-- File handling to "print out a receipt".
+- [ ] File handling to "print out a receipt".
+- [ ] "Tables" (arrays) for items bought (`OCCURS`)
+- [ ] 
 
 ## Running the App
 

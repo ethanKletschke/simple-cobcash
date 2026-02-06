@@ -88,7 +88,6 @@
        COPY "ProcessingScreen.cpy".
        COPY "OutputScreen.cpy".
        COPY "ErrorScreen.cpy".
-       COPY "ItemScreen.cpy".
 
        PROCEDURE DIVISION.
        INITIALISATION SECTION. *> Data initialisation

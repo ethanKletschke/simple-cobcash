@@ -89,7 +89,6 @@
        COPY "OutputScreen.cpy".
        COPY "ErrorScreen.cpy".
        COPY "ItemScreen.cpy".
-      D COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.
        INITIALISATION SECTION. *> Data initialisation
@@ -154,12 +153,8 @@
 
            CLOSE Receipt-File.
 
-           DISPLAY
-      *    Display the normal output screen
-              SC-Output-Screen 
-      *    Overwrite it with the debug screen if compiled with "build-debug.cmd"
-      D       SC-Debug-Screen 
-           END-DISPLAY.
+      *    Display the output screen
+           DISPLAY SC-Output-Screen.
 
       *    Press enter to continue
            ACCEPT OMITTED.

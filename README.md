@@ -18,7 +18,6 @@ A fixed-format COBOL app that imitates a transaction at a cashier till.
     - [Known Limitations and Bugs](#known-limitations-and-bugs)
   - [Features](#features)
     - [Current Features](#current-features)
-    - [Planned Features](#planned-features)
   - [Running the App](#running-the-app)
 
 ---
@@ -61,15 +60,6 @@ then generates a receipt in the form of a text file (`Receipt.txt`).
 ### Current Features
 
 - Input, processing, output, and error screens defined in the `SCREEN` section.
-
-### Planned Features
-
-- [x] Using the `SCREEN` section for different sections of the program, i.e., input, 
-  processing, and output.
-- [x] File handling to "print out a receipt".
-- [ ] "Tables" (arrays) for items bought (`OCCURS`)
-  - [ ] Separate screen for items bought
-  - [ ] Add up all items entered
 
 ## Running the App
 

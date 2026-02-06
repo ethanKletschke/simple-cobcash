@@ -88,6 +88,7 @@
        COPY "ProcessingScreen.cpy".
        COPY "OutputScreen.cpy".
        COPY "ErrorScreen.cpy".
+       COPY "ItemScreen.cpy".
       D COPY "DebugScreen.cpy".
 
        PROCEDURE DIVISION.

@@ -3,33 +3,41 @@
 A fixed-format COBOL app that imitates a transaction at a cashier till.
 
 - Author: Ethan Kletschke
-- Version: `0.1.2`
+- Version: `1.0.0`
 - Developed and Tested On: Windows 11
-- Targeted Platform: Windows
+- Targeted Platform: Windows 10 and above
 - License: MIT
 - Project Metadata File: [`project.yaml`](./meta/project.yaml)
 
 ---
 
 - [CobCash](#cobcash)
+  - [About the App](#about-the-app)
   - [Disclaimers](#disclaimers)
     - [About This Project](#about-this-project)
     - [Known Limitations and Bugs](#known-limitations-and-bugs)
-  - [Planned Features](#planned-features)
+  - [Features](#features)
+    - [Current Features](#current-features)
+    - [Planned Features](#planned-features)
   - [Running the App](#running-the-app)
 
 ---
+
+## About the App
+
+This program is a mockup of a cashier till application. You input the
+cardholder's name, their 5-digit card PIN, amount owed (to pay), and the 
+amount paid via card. The program then validates the input values, displays
+a processing screen for two seconds, and displays a payment summary. The app
+then generates a receipt in the form of a text file (`Receipt.txt`).
 
 ## Disclaimers
 
 ### About This Project
 
-- This program does no real processing as of yet. It merely displays the input
-  "Screen" (terminal UI) for user input, a mockup processing screen, 
-  and a debug screen that shows variable values.
 - All COBOL source code intentionally follows _**fixed format**_, as this is 
-  what I prefer and am used to using for COBOL programming. Future projects
-  will utilise free format.
+  what I prefer and am used to using for COBOL programming. Future COBOL 
+  projects will utilise free format.
 - The `meta` folder contains project metadata files that are not used for 
   running the app.
 
@@ -38,20 +46,30 @@ A fixed-format COBOL app that imitates a transaction at a cashier till.
 - GnuCOBOL’s implementation of the COBOL `SCREEN` section is somewhat finicky
   with user input.
   - The decimal points (`.`) in the numeric inputs are "glued" in place, and
-    cannot be overwritten.
+    cannot be overwritten unless backspace is pressed (but this leads to another
+    bug).
   - There is a chance that user input can overflow into different fields if the
     entered number is longer than the target field.
   - It is recommended to use the arrow keys to navigate to different fields.
   - Furthermore, if you press backspace in the numeric inputs, it'll remove 
     the placeholder characters (i.e. `0` and `.`) and make input even more 
-    confusing.
+    confusing. To fix this, just use the arrow keys to navigate out of that
+    field. This will refresh the formatting of that field.
 
-## Planned Features
+## Features
+
+### Current Features
+
+- Input, processing, output, and error screens defined in the `SCREEN` section.
+
+### Planned Features
 
 - [x] Using the `SCREEN` section for different sections of the program, i.e., input, 
   processing, and output.
 - [x] File handling to "print out a receipt".
 - [ ] "Tables" (arrays) for items bought (`OCCURS`)
+  - [ ] Separate screen for items bought
+  - [ ] Add up all items entered
 
 ## Running the App
 

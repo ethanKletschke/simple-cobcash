@@ -1,0 +1,17 @@
+name:  Feature Request
+description: Suggest a new feature
+title: "[Feat. Req.]: "
+labels: ["Feature Request"]
+
+body:
+  - type: markdown
+    attributes:
+      value: Please fill out the description of the new feature below.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the new feature clearly
+    validations:
+      required: true

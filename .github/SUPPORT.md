@@ -1,6 +1,8 @@
 # CobCash – Support
 
-This document explains what kind of support is available for CobCash, how to report issues, and what limitations you should be aware of when using the program.
+This document explains what kind of support is available for CobCash, 
+how to report issues, and what limitations you should be aware of when using the
+program.
 
 ---
 
@@ -42,7 +44,8 @@ Open a GitHub issue that includes:
 - Your Windows version
 - Where you downloaded the release from
 
-Any confirmed missing DLLs will be bundled into a future release as soon as possible.
+Any confirmed missing DLLs will be bundled into a future release as soon as 
+possible.
 
 ## General Bugs and Unexpected Behaviour
 

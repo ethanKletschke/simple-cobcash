@@ -6,7 +6,7 @@
        FILE-CONTROL.
       *    Declare the file to write the receipt report to
            SELECT Receipt-File ASSIGN TO "Receipt.txt"
-           ORGANISATION SEQUENTIAL
+           ORGANISATION LINE SEQUENTIAL
            SHARING WITH NO OTHER.
 
        DATA DIVISION.
@@ -59,6 +59,9 @@
       *The heading of the receipt
        01  TYPE IS PAGE HEADING.
            05 LINE PLUS 1. *> Line 1 of receipt
+      *        A divider made up of "=" signs
+               10 COL 1 PIC X(45) SOURCE WS-Equals-Divider.
+           05 LINE PLUS 2.
                10 COL 1 VALUE "CobCash Receipt". *> Title
                10 COL 25 PIC 9999/99/99 SOURCE WS-Date. *> Today's date
            05 LINE PLUS 2.

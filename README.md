@@ -16,8 +16,7 @@ A fixed-format COBOL app that imitates a transaction at a cashier till.
   - [Disclaimers](#disclaimers)
     - [About This Project](#about-this-project)
     - [Known Limitations and Bugs](#known-limitations-and-bugs)
-  - [Features](#features)
-    - [Current Features](#current-features)
+  - [Features of This Project](#features-of-this-project)
   - [Running the App](#running-the-app)
 
 ---
@@ -52,14 +51,18 @@ then generates a receipt in the form of a text file (`Receipt.txt`).
   - It is recommended to use the arrow keys to navigate to different fields.
   - Furthermore, if you press backspace in the numeric inputs, it'll remove 
     the placeholder characters (i.e. `0` and `.`) and make input even more 
-    confusing. To fix this, just use the arrow keys to navigate out of that
-    field. This will refresh the formatting of that field.
+    confusing. 
+      - To fix this, just use the arrow keys to navigate out of that
+        field. This will refresh the formatting of that field.
 
-## Features
-
-### Current Features
+## Features of This Project
 
 - Input, processing, output, and error screens defined in the `SCREEN` section.
+- Build and linting scripts for Windows CMD
+- File handling with a sequential file
+- Comprehensive data structures in the `DATA` division
+- Generating a text file receipt with COBOL's Report Writer Control System 
+  (RWCS)
 
 ## Running the App
 
@@ -81,8 +84,8 @@ and collecting all required runtime DLLs can be difficult and error-prone.
 
 For this reason, a pre-built GnuCOBOL distribution (such as
 [Arnold Trembley's amazing binaries](https://www.arnoldtrembley.com/GnuCOBOL.htm)) 
-was used to build the provided binaries,
-and the release ZIP includes the DLLs needed to run the program on Windows.
+was used to build the provided binaries, and the release ZIP includes the DLLs 
+needed to run the program on Windows.
 
 If you do build from source and encounter missing DLL errors, please report them
 via a GitHub issue so they can be documented or included in future releases.

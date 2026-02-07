@@ -42,8 +42,7 @@
       *Today's date, for use in the REPORT section.
        01  WS-Date PIC 9999/99/99.
       *Miscellaneous data item for report formatting
-       01  WS-Equals-Divider.
-           05 FILLER PIC X(45) VALUE ALL "=".
+       01  WS-Equals-Divider PIC X(45) VALUE ALL "=".
       *Error fields
        01  WS-Error-Values.
            05 WS-Error-Msg PIC X(25) VALUE "Unspecified Error".
@@ -65,7 +64,7 @@
            05 LINE PLUS 2.
       *        A divider made up of "=" signs
                10 COL 1 PIC X(45) SOURCE WS-Equals-Divider.
-      
+
       *Receipt body
        01  TYPE CONTROL FOOTING FINAL.
            05 LINE PLUS 1.
@@ -144,10 +143,10 @@
            MOVE WS-Paid TO WS-Disp-Paid.
 
       *    Allows the user to actually see the processing screen
-           CONTINUE AFTER 2 SECONDS. 
+           CONTINUE AFTER 2 SECONDS.
 
        END-OF-PROGRAM SECTION.
-      *    Generate the 
+      *    Generate the report and terminate it
            GENERATE Receipt-Report.
            TERMINATE Receipt-Report.
 

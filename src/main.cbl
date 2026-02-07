@@ -6,7 +6,8 @@
        FILE-CONTROL.
       *    Declare the file to write the receipt report to
            SELECT Receipt-File ASSIGN TO "Receipt.txt"
-           ORGANISATION SEQUENTIAL.
+           ORGANISATION SEQUENTIAL
+           SHARING WITH NO OTHER.
 
        DATA DIVISION.
        FILE SECTION.

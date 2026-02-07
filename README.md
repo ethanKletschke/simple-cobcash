@@ -1,5 +1,7 @@
 # CobCash
 
+[![Compile and Link](https://github.com/ethanKletschke/CobCash/actions/workflows/CompileAndLink.yml/badge.svg)](https://github.com/ethanKletschke/CobCash/actions/workflows/CompileAndLink.yml)
+
 A fixed-format COBOL app that imitates a transaction at a cashier till.
 
 - Author: Ethan Kletschke

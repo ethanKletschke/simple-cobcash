@@ -56,6 +56,7 @@
                HEADING 1 *> heading at line 1
                FIRST DETAIL 5 *> Start of body at line 5
                LAST DETAIL 10. *> End of body at line 10
+
       *The heading of the receipt
        01  TYPE IS PAGE HEADING.
            05 LINE PLUS 1. *> Line 1 of receipt

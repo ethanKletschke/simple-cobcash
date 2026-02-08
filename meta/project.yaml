@@ -6,15 +6,26 @@ project-meta:
   author: Ethan Kletschke
   date-started: 2026-01-25
   last-updated: 2026-02-08
-  language: COBOL (GnuCOBOL)
-  status: Experimental
+  languages: 
+    - COBOL (GnuCOBOL)
+  status: Work-in-progress
   license: MIT
-  version: 0.2.0
+  version: 1.0.0
 
 build:
-  developed-on: Windows 11
-  tested-on: Windows 11
-  target-platform: Windows
+  dev-environments:
+    - Windows 11
+  test-environments: 
+    - Windows 11
+  target-platforms: 
+    - Windows 10
+    - Windows 11
   compiler:
     compiler-name: cobc (GnuCOBOL)
+    static-compiler: false
     compiler-version: 3.2
+
+team:
+  author: Ethan Kletschke
+  contributors:
+    - Ethan Kletschke

@@ -2,6 +2,11 @@
 @REM First run "set_env.cmd" from GnuCOBOL's root folder
 
 @REM Build in the binary folder
-cobc -x -I ../src ../src/main.cbl -o ../bin/CobCash -Wno-terminator
+cobc -I ../src ^
+  -x ../src/main.cbl ^
+  -o ../bin/CobCash ^
+  -Wall ^
+  -Wextra ^
+  -Wno-terminator
 
 @REM Note: Run from the "scripts" folder

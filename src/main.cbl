@@ -129,7 +129,7 @@
                MOVE 101 TO WS-Error-Code
 
       *        Allow the user to see the processing screen
-               CONTINUE AFTER 2 SECONDS
+               CONTINUE AFTER 1 SECONDS
 
       *        Display the error screen
                DISPLAY SC-Error-Screen

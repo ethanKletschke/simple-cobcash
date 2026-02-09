@@ -59,7 +59,8 @@ then generates a receipt in the form of a text file (`Receipt.txt`).
 
 ## Features of This Project
 
-- Input, processing, output, and error screens defined in the `SCREEN` section.
+- Items, payment, processing, output, and error screens defined in the `SCREEN` 
+  section.
 - Build and linting scripts for Windows CMD
 - File handling with a sequential file
 - Comprehensive data structures in the `DATA` division

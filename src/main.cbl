@@ -136,6 +136,12 @@
            DISPLAY SC-Item-Screen.
            ACCEPT SC-Item-Screen.
 
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I EQUALS 5
+               COMPUTE 
+                   WS-Owed = WS-Owed + WS-Prices(I) * WS-Quantities(I)
+               END-COMPUTE
+           END-PERFORM.
+
       *    Display the payment screen
            DISPLAY SC-Payment-Screen.
            ACCEPT SC-Payment-Screen.

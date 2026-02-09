@@ -119,9 +119,6 @@
                INITIALISE WS-Quantities(I)
            END-PERFORM.
 
-      *    Reset the index to 1 after the loop.
-           SET I TO 1.
-
       *    Store today's date for use in the report
            MOVE FUNCTION CURRENT-DATE(1:8)
                TO WS-Date.

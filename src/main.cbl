@@ -26,11 +26,11 @@
       *Plain numeric fields for calculating and storing financial data.
        01  WS-Calc-Finances.
       *    Amount Paid (for calculations)
-           05 WS-Paid PIC 99999V99 VALUE 0.
+           05 WS-Paid PIC 999999V99 VALUE 0.
       *    Amount owed (for calculations)
-           05 WS-Owed PIC 99999V99 VALUE 0.
+           05 WS-Owed PIC 999999V99 VALUE 0.
       *    Change left over (for calculations)
-           05 WS-Change PIC 99999V99 VALUE 0.
+           05 WS-Change PIC 999999V99 VALUE 0.
       *Edited numeric fields for displaying financial data.
        01  WS-Disp-Finances.
       *    Amount Paid (for display)

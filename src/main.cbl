@@ -40,10 +40,6 @@
            05 WS-Disp-Owed PIC $$$$,$$9.99 VALUE 0.
       *    Change left over (for display)
            05 WS-Disp-Change PIC $$$$,$$9.99 VALUE 0.
-      *Items "Table" (array)
-       01  WS-Items PIC X(20) OCCURS 5 TIMES.
-      *Item Prices "Table"
-       01  WS-Prices PIC 999999V99 OCCURS 5 TIMES.
       *Error fields
        01  WS-Error-Values.
            05 WS-Error-Msg PIC X(25) VALUE "Unspecified Error".
@@ -52,6 +48,17 @@
        01  WS-Date PIC 9999/99/99.
       *Miscellaneous data item for report formatting
        01  WS-Equals-Divider PIC X(45) VALUE ALL "=".
+
+      *Items Screen "Tables" (arrays)
+       01  WS-Items-Tables.
+      *    Item names "Table"
+           05 WS-Items PIC X(20) OCCURS 5 TIMES.
+      *    Item Prices "Table"
+           05 WS-Prices PIC 999999V99 OCCURS 5 TIMES.
+      *    Item quantities "table"
+           05 WS-Quantities PIC 999 OCCURS 5 TIMES.
+      *    Index for PERFORM loops on these tables
+           05 I USAGE INDEX.
 
        REPORT SECTION.
       *The receipt report description

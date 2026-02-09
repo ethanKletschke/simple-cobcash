@@ -39,14 +39,14 @@
            05 WS-Disp-Owed PIC $$$$,$$9.99 VALUE 0.
       *    Change left over (for display)
            05 WS-Disp-Change PIC $$$$,$$9.99 VALUE 0.
-      *Today's date, for use in the REPORT section.
-       01  WS-Date PIC 9999/99/99.
-      *Miscellaneous data item for report formatting
-       01  WS-Equals-Divider PIC X(45) VALUE ALL "=".
       *Error fields
        01  WS-Error-Values.
            05 WS-Error-Msg PIC X(25) VALUE "Unspecified Error".
            05 WS-Error-Code PIC ZZ9 VALUE 0.
+      *Today's date, for use in the REPORT section.
+       01  WS-Date PIC 9999/99/99.
+      *Miscellaneous data item for report formatting
+       01  WS-Equals-Divider PIC X(45) VALUE ALL "=".
 
        REPORT SECTION.
       *The receipt report description

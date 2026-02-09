@@ -27,13 +27,11 @@
       -    "================================".
 
       *    Funds transfer heading
-           05 LINE 10 COL 3 VALUE "Funds Transfer".
-           05 LINE 11 COL 3 VALUE "--------------".
+           05 LINE 10 COL 3 VALUE "Details About Purchase".
+           05 LINE 11 COL 3 VALUE "----------------------".
 
            05 LINE 13 COL 3 VALUE "Amount Owed: ".
-           05 LINE 13 COL PLUS 1 PIC $ZZZZZ9.99 USING WS-Owed
-              REVERSE-VIDEO
-              REQUIRED.
+           05 LINE 13 COL PLUS 1 PIC $ZZZZZ9.99 FROM WS-Owed.
 
            05 LINE 14 COL 3 VALUE "Amount Paid: ".
            05 LINE 14 COL PLUS 1 PIC $ZZZZZ9.99 USING WS-Paid

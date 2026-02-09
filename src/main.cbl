@@ -112,6 +112,13 @@
            INITIALISE WS-Card-Data.
            INITIALISE WS-Date.
 
+      *    Initialise the table items
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I EQUALS 5
+               INITIALISE WS-Items(I)
+               INITIALISE WS-Prices(I)
+               INITIALISE WS-Quantities(I)
+           END-PERFORM.
+
       *    Store today's date for use in the report
            MOVE FUNCTION CURRENT-DATE(1:8)
                TO WS-Date.

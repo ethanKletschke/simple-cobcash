@@ -7,11 +7,12 @@
       *    Declare the file to write the receipt report to
            SELECT Receipt-File ASSIGN TO "Receipt.txt"
            ORGANISATION SEQUENTIAL
+      *    Lock the file for use in this program only
            SHARING WITH NO OTHER.
 
        DATA DIVISION.
        FILE SECTION.
-      * File description for the receipt file "Receipt.txt".
+      *File description for the receipt file "Receipt.txt".
        FD  Receipt-File
       *Link "Receipt.txt" to its corresponding report
            REPORT IS Receipt-Report.
@@ -99,7 +100,7 @@
        COPY "ItemScreen.cpy".
 
        PROCEDURE DIVISION.
-       INITIALISATION SECTION. *> Data initialisation
+       INITIALISATION SECTION. *> Initialise all the data in this app
       *Initialise data items without a VALUE clause
            INITIALISE WS-Card-Data.
            INITIALISE WS-Date.
@@ -108,7 +109,7 @@
            MOVE FUNCTION CURRENT-DATE(1:8)
                TO WS-Date.
 
-       USER-INPUT SECTION.
+       USER-INPUT SECTION. *> Show the user input screens
       *    Open the Receipt.txt file and start recording values
       *    for its report.
            OPEN OUTPUT Receipt-File.
@@ -118,7 +119,7 @@
            DISPLAY SC-Input-Screen.
            ACCEPT SC-Input-Screen.
 
-       Processing-User-Input SECTION.
+       Processing-User-Input SECTION. *> Process user input
       *    Display the processing screen
            DISPLAY SC-Processing-Screen.
 
@@ -154,7 +155,7 @@
       *    Allows the user to actually see the processing screen
            CONTINUE AFTER 2 SECONDS.
 
-       END-OF-PROGRAM SECTION.
+       END-OF-PROGRAM SECTION. *> Close loose ends in the program
       *    Generate the report and terminate it
            GENERATE Receipt-Report.
            TERMINATE Receipt-Report.

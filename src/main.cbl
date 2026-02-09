@@ -100,7 +100,7 @@
 
        SCREEN SECTION.
       *The screens are defined in separate copybooks for scalability
-       COPY "InputScreen.cpy".
+       COPY "PaymentScreen.cpy".
        COPY "ProcessingScreen.cpy".
        COPY "OutputScreen.cpy".
        COPY "ErrorScreen.cpy".
@@ -137,8 +137,8 @@
            ACCEPT SC-Item-Screen.
 
       *    Display the payment screen
-           DISPLAY SC-Input-Screen.
-           ACCEPT SC-Input-Screen.
+           DISPLAY SC-Payment-Screen.
+           ACCEPT SC-Payment-Screen.
 
        Processing-User-Input SECTION. *> Process user input
       *    Display the processing screen

@@ -1,5 +1,5 @@
       *Screen for user input (the "EFT transaction")
-       01  SC-Input-Screen
+       01  SC-Payment-Screen
            BACKGROUND-COLOUR 7  *> White
            FOREGROUND-COLOUR 0. *> Black
       *    Clears the terminal screen.

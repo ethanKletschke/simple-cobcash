@@ -119,6 +119,9 @@
                INITIALISE WS-Quantities(I)
            END-PERFORM.
 
+      *    Reset the index to 1 after the loop.
+           SET I TO 1.
+
       *    Store today's date for use in the report
            MOVE FUNCTION CURRENT-DATE(1:8)
                TO WS-Date.
@@ -129,7 +132,11 @@
            OPEN OUTPUT Receipt-File.
            INITIATE Receipt-Report.
 
-      *    Display the input screen
+      *    Display the item input screen
+           DISPLAY SC-Item-Screen.
+           ACCEPT SC-Item-Screen.
+
+      *    Display the payment screen
            DISPLAY SC-Input-Screen.
            ACCEPT SC-Input-Screen.
 

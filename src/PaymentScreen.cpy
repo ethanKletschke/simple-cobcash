@@ -5,7 +5,7 @@
       *    Clears the terminal screen.
            05 BLANK SCREEN.
       *    Screen heading
-           05 LINE 2 COL 3 VALUE "Cardholder Information".
+           05 LINE 2 COL 3 VALUE "Final Payment".
            05 LINE 3 COL 3 VALUE "----------------------".
 
       *    Cardholder Name label

@@ -39,6 +39,10 @@
            05 WS-Disp-Owed PIC $$$$,$$9.99 VALUE 0.
       *    Change left over (for display)
            05 WS-Disp-Change PIC $$$$,$$9.99 VALUE 0.
+      *Items "Table" (array)
+       01  WS-Items PIC X(20) OCCURS 5 TIMES.
+      *Item Prices "Table"
+       01  WS-Prices PIC 999999V99 OCCURS 5 TIMES.
       *Error fields
        01  WS-Error-Values.
            05 WS-Error-Msg PIC X(25) VALUE "Unspecified Error".

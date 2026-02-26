@@ -28,6 +28,6 @@ team:
   owner: Ethan Kletschke
   contributors:
     - name: Ethan Kletschke
-      role: "Author and Owner"
+      role: Author and Owner
       github-username: ethanKletschke
       website: https://ethankletschke.netlify.app

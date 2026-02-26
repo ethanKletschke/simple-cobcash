@@ -3,29 +3,31 @@
 
 project-meta:
   project-name: CobCash
-  author: Ethan Kletschke
   date-started: 2026-01-25
   last-updated: 2026-02-09
-  languages: 
+  languages:
     - COBOL (GnuCOBOL)
-  status: Work-in-progress
+  status: Stable
   license: MIT
   version: 1.0.0
 
 build:
   dev-environments:
     - Windows 11
-  test-environments: 
+  test-environments:
     - Windows 11
-  target-platforms: 
-    - Windows 10
+  target-platforms:
     - Windows 11
   compiler:
     compiler-name: cobc (GnuCOBOL)
     static-compiler: false
-    compiler-version: 3.2
+    compiler-version: 3.2.0
 
 team:
   author: Ethan Kletschke
+  owner: Ethan Kletschke
   contributors:
-    - Ethan Kletschke
+    - name: Ethan Kletschke
+      role: "Author and Owner"
+      github-username: ethanKletschke
+      website: https://ethankletschke.netlify.app

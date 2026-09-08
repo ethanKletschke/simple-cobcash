@@ -1,4 +1,4 @@
-FROM debian:bookworm AS build
+FROM ubuntu:24.04 AS build
 
 RUN apt-get update && \
   apt-get install -y gnucobol && \
@@ -11,7 +11,7 @@ RUN cobc -x main.cbl -I ./ -o CobCash
 
 # -------------------------------
 
-FROM debian:bookworm
+FROM ubuntu:24.04
 
 RUN apt-get update && \
   apt-get install -y libcob4 && \
